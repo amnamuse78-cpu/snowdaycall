@@ -1,0 +1,1 @@
+{"dependencies":{"nuxt":"^3.17.0"},"devDependencies":{"@cloudflare/workers-types":"^4.20250910.0","typescript":"^5.6.0","wrangler":"^4.0.0"},"name":"snowdaycall","private":true,"scripts":{"build":"nuxt build","deploy":"wrangler deploy","dev":"nuxt dev","preview":"nuxt preview"},"type":"module","version":"1.0.0"}
