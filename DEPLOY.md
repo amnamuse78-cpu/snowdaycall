@@ -36,10 +36,14 @@ Already declared in `wrangler.jsonc` (`0 */2 * * *` = every 2 hours).
 During active storms, tighten it in the dashboard: Workers → Triggers → add `0 * * * *` (hourly) or `*/30 * * * *` (every 30 min). Loosen it back after the storm.
 
 ## What it costs
-- Workers free: 100,000 requests/day. Paid ($5/mo): 10M requests/month included.
+**Launch plan: Cloudflare Free tier — $0/month.** (Decided 2026-10-21.)
+Free tier covers everything this site needs at launch:
+- Workers free: 100,000 requests/day, **5 Cron Triggers per account included**.
 - D1 free: 5M row reads/day, 100K writes/day, 5 GB storage.
 - KV free: 100K reads/day, 1K writes/day, 1 GB.
-- Realistic bill at launch: **$0–5/month**. NWS weather data is free.
+- NWS weather data is free.
+
+The one limit to watch: free tier allows 10 ms CPU per request (waiting on network fetches doesn't count). Our handlers are mostly fetch-and-cache, so this should be fine. If you ever see CPU-limit errors in the dashboard, upgrade to Workers Paid ($5/mo, 10M requests/month, 5 min CPU) — it's a two-minute change, no code changes needed.
 
 ## After launch
 1. Google Search Console → add property → submit `https://snowdaycall.com/sitemap.xml`.
